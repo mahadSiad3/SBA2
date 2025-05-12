@@ -95,7 +95,7 @@ function getLearnerData() {
 
     // return result;
 
-    let ids = [];
+let ids = [];
 let studentIds = [];
 let assignmentIds125 = [];
 let assignmentIds132 = [];
@@ -128,8 +128,8 @@ for (let i = 0; i < LearnerSubmissions.length; i++) {
         //console.log(AssignmentGroup.assignments[q].points_possible)
     }
 }
-console.log(scores125)
-console.log(scores132)
+//.log(scores125)
+//console.log(scores132)
 //console.log(AssignmentGroup.assignments[0].points_possible)
 //console.log(results)
 let totalScore125 = 0
@@ -142,7 +142,7 @@ for (let i = 0; i < assignmentIds125.length; i++) {
         totalScore125 += scores125[i]
     }
 }
-console.log("neeeeeewwwwww:" + totalScore125)
+//console.log("neeeeeewwwwww:" + totalScore125)
 results.push(learner125);
 let deduction =0;
 let totalScore132 = 0
@@ -158,28 +158,28 @@ for (let i = 0; i < assignmentIds132.length; i++) {
        
     }
 }
-console.log("added:" + totalScore132)
+//console.log("added:" + totalScore132)
 results.push(learner132);
-console.log(results);
+//console.log(results);
 
 let total = 0;
 let possiblePoints = []
 AssignmentGroup.assignments.forEach((student) => {
     const now = new Date();
-    console.log(student.due_at)
+    //console.log(student.due_at)
     if (student.due_at <= now.toISOString().substring(0, 10)) {
         possiblePoints.push(student.points_possible)
         total += student.points_possible
-        console.log(now.toISOString().substring(0, 10))
+        //console.log(now.toISOString().substring(0, 10))
     }//avg =Math.floor(avg/student.grades.length)
-    console.log("bal" + total)
+    //console.log("bal" + total)
 
 })
 
 //console.log(possiblePoints.length)
 let average125 = totalScore125 / total
 results[0].avg = (average125);
-console.log(results)
+//console.log(results)
 let average132 = totalScore132 / total
 results[1].avg = (average132);
 console.log(results)
