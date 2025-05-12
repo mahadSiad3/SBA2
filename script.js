@@ -76,7 +76,7 @@ const LearnerSubmissions = [
     }
 ];
 
-function getLearnerData(course, ag, submissions) {
+function getLearnerData() {
     // // here, we would process this data to achieve the desired result.
     // const result = [
     //     {
@@ -94,17 +94,8 @@ function getLearnerData(course, ag, submissions) {
     // ];
 
     // return result;
-}
 
-const result = getLearnerData(CourseInfo, AssignmentGroup, LearnerSubmissions);
-
-//console.log(result);
-
-// generate an array of students ids -> [125,125,125,132,132]
-// generate the array from submissions data then make it unique -> [125,132]
-
-let unique = function (){
-let ids = [];
+    let ids = [];
 let studentIds = [];
 let assignmentIds125 = [];
 let assignmentIds132 = [];
@@ -193,127 +184,6 @@ let average132 = totalScore132 / total
 results[1].avg = (average132);
 console.log(results)
 }
-unique()
-//results[0].push({avg :(totalScore125/total)})
 
+const result = getLearnerData();
 
-
-/*
-      id: 125,
-            avg: 0.985, // (47 + 150) / (50 + 150)
-            1: 0.94, // 47 / 50
-            2: 1.0 // 150 / 150
-        },
-        {
-            id: 132,
-            avg: 0.82, // (39 + 125) / (50 + 150)
-            1: 0.78, // 39 / 50
-            2: 0.833 // late: (140 - 15) / 150
-
-
-const AssignmentGroup = {
-    id: 12345,
-    name: "Fundamentals of JavaScript",
-    course_id: 451,
-    group_weight: 25,
-    assignments: [
-        {
-            id: 1,
-            name: "Declare a Variable",
-            due_at: "2023-01-25",
-            points_possible: 50
-        },
-        */
-
-//  4. we need to calculate the grade
-//     go every student and match assignment using id to find points points_possible
-//     you just divide the score by points points_possible
-//     -> [{id:125,1:0.94,2:1.0}]
-//     avg (add assignment scores together )/ (points possible)
-//     remove not due assignments
-
-
-
-
-
-
-// const resultsMap = {};
-
-// LearnerSubmissions.forEach(({ learner_id, assignment_id, submission }) => {
-//   if (!resultsMap[learner_id]) {
-//     resultsMap[learner_id] = { id: learner_id };
-//   }
-//   resultsMap[learner_id][assignment_id] = submission.score;
-// });
-
-//  results = Object.values(resultsMap);
-
-// console.log(results);
-
-
-//}
-//unique()
-
-// 2. convert it into array of object where you have a key called id
-//     then value be studendid -> [{id:125},{id:132}]
-
-//   3. get the assignments and calulcate the grade
-//     find the assignment for each student and thier score
-//     -> [{id:125,1:47,2:150,3:400},{id:132,1:32,2:140}]
-//     now you have an object for each student that has score
-
-/*
-
-    let ListedStudents = [{
-        name:"Alice",
-        age:20,
-        grades:[
-            85,
-            95,
-            88
-        ]},
-        {
-        name:"bob",
-        age:22,
-        grades:[
-            78,
-            81,
-            79
-        ]},
-        {
-        name:"charlie",
-        age:23,
-        grades:[
-           95,
-           90,
-           93
-        ]
-    },
-    {
-        name:"David",
-        age:21,
-        grades:[
-            70,
-            75,
-            72
-        ]
-    
-    }]
-   ListedStudents.forEach(student =>{
-        let avg=0
-        student.grades.forEach(grade=>{
-            avg += grade
-        })
-    student.averageGrade =Math.floor(avg/student.grades.length)
-    //console.log(avg)
-    //console.log(student.name)    
-    })
-    console.table(ListedStudents)
-
-   let studentsummary = ListedStudents.map ((student) =>{
-    let summary = student.name + "is " + student.age+ " years old and has and average grade of : "+ student.averageGrade
-    return summary
-})
-console.log(studentsummary)
-
-*/
